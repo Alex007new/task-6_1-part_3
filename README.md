@@ -6,3 +6,32 @@
 Заливает его в хранилище: асинхронно загружает полученный файл в указанную папку бакета.<br>
 Перемещает обработанные файлы: либо удаляет исходный файл, либо помещает его в архив.<br>
 Логирует все этапы работы: записывает логи в отдельный файл; перезаписывает его в хранилище.<br>
+
+После установления зависимости (Terminal):  *pip install pandas watchfiles aiobotocore python-dotenv*<br>и добавления переменных окружения в Run Configuration (	
+S3_ACCESS_KEY	
+S3_SECRET_KEY	
+S3_ENDPOINT	
+S3_BUCKET	
+S3_PREFIX	
+S3_LOG_KEY	
+S3_VERIFY_SSL	
+WATCH_DIR	
+),<br>
+в корне нашего проекта work_S3/ были созданы 4 каталога:<br>
+
+work_S3/<br>
+├── inbox/     ← сюда кладём новые CSV (watcher следит за ней)<br>
+├── archive/   ← сюда перемещаются обработанные исходники<br>
+├── tmp/       ← временные обработанные файлы (после pandas)<br>
+├── logs/      ← локальный файл логов pipeline.log<br>
+
+
+Создан и запущен пайплайн task3_pipeline.py (прилагается).<br>
+
+Создан файл inbox/test.csv<br>
+
+Сразу после этого видим:<br>
+
+
+<img width="1010" height="186" alt="image" src="https://github.com/user-attachments/assets/d9c0e4c7-5d36-4b46-9e11-3f8116b9c490" />
+
